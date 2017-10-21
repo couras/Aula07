@@ -5,6 +5,11 @@ import java.util.List;
 
 public class Banco {
 	
+	public Banco() {
+		// TODO Auto-generated constructor stub
+	}
+	
+	double valorTotal;
 	List<Conta> contas = new ArrayList<Conta>();
 
 	public List<Conta> getContas() {
@@ -19,17 +24,16 @@ public class Banco {
 		return contas;
 	}
 	
-	public double totalContas() {
-		
-		double retorno = 0;
-		for(Conta conta : this.contas) {
-			retorno += conta.getSaldo();
-		}
-			
-		return retorno;
+	public void addContas(Conta conta) {
+		this.valorTotal += conta.getSaldo();
+		this.contas.add(conta);
 	}
-
+	
 	public Banco(List<Conta> contas) {
 		this.contas = contas;
+	}
+
+	public double getValorTotal() {
+		return valorTotal;
 	}
 }

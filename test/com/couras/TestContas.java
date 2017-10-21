@@ -23,18 +23,15 @@ public class TestContas {
 		System.out.println("Saldo conta corrente: R$ " + cc.getSaldo());
 		System.out.println("Saldo conta poupança: R$ " + cp.getSaldo());
 		
-		List<Conta> contas = new ArrayList<Conta>();
+		Banco banco = new Banco();
 		
-		contas.add(cc);
-		contas.add(cp);
+		banco.addContas(cc);
+		banco.addContas(cp);
 		
-		Banco banco = new Banco(contas);
-		
-		System.out.println("Total Contas: R$ " + banco.totalContas());
+		System.out.println("Total Contas: R$ " + banco.getValorTotal());
 		String retorno = "";
-		for(Conta conta : contas) {
-			retorno += "Cliente: " + conta.getCliente().getNome() + " Valor: R$ " + conta.getSaldo();
-			retorno += " / ";
+		for(Conta conta : banco.getContas()) {
+			retorno += "-------------\nCliente: " + conta.getCliente().getNome().toUpperCase() + " \nSaldo: R$ " + conta.getSaldo() + "\n";
 		}
 		
 		System.out.println(retorno);

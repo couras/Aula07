@@ -1,7 +1,6 @@
 package com.couras;
 
 public abstract class Conta {
-
 	public double saldo;
 	private Cliente cliente;
 	
